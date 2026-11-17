@@ -53,7 +53,17 @@
   — calendar-day mean +$0.72/window vs -$0.06; rolling-6h mean +$0.65 vs
   +$0.11. Full numbers in STRATEGY.md. Shipped variant: **hold-only**
   (`GUARDS = False`).
-- Kit check: _TBD — filled after running `makefun check`_
+- Kit check (`makefun check`, run on commit a4a9d36d; the only change since
+  is this file): **pass** — competition_open, snapshot, license_osi,
+  entrypoint. **fail** — transcripts_present only (no bundle supplied yet;
+  the bundle is made at submit time from the build sessions, and the
+  transcript gate is re-run over it then). **deferred to submission** —
+  repo_public, repo_owner, repo_created_after_open, commit_in_repo,
+  duplicate_snapshot. **skipped** — strategy_note, committed_secret, and
+  every other transcript check (they need the bundle). Overall `ok: false`
+  only because of transcripts_present. `thinking_priced` may show 0 usage
+  rows until the build session's usage flushes after the turn ends; that is
+  expected and is not faked.
 
 ## Live scores (placeholders — fill after submit / race)
 
